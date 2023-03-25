@@ -29,4 +29,19 @@ class ArrayListTest extends spock.lang.Specification {
         then:
         testList.contains(text)
     }
+    def "list toArray" () {
+        given:
+        ArrayList<Integer> testList = new ArrayList<>();
+        for(int data = 0; data < 10; data++) {
+            testList.add(data)
+        }
+
+        when:
+        Integer[] array = testList.toArray() as Integer[]
+
+        then:
+        for(int data = 0; data < 10; data++) {
+            array[data] == data;
+        }
+    }
 }
