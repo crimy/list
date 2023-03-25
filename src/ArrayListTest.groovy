@@ -3,7 +3,7 @@ class ArrayListTest extends spock.lang.Specification {
         given:
         ArrayList<Integer> testList = new ArrayList<>();
 
-        then:
+        expect:
         testList.isEmpty();
     }
 
@@ -12,11 +12,21 @@ class ArrayListTest extends spock.lang.Specification {
         ArrayList<String> testList = new ArrayList<>();
         def text = "addSomething"
         when:
-        testList.add("addSomething");
+        testList.add(text);
 
         then:
         testList.size() == 1;
         testList.get(0) == text
         !testList.isEmpty()
+    }
+    def "list contains?" () {
+        given:
+        ArrayList<String> testList = new ArrayList<>();
+        def text = "mustHaveThis"
+        when:
+        testList.add(text);
+
+        then:
+        testList.contains(text)
     }
 }

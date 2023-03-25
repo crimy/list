@@ -19,6 +19,11 @@ public class ArrayList<E> implements List<E> {
 
     @Override
     public boolean contains(Object o) {
+        for(Object data: datas) {
+            if(data.equals(o)) {
+                return true;
+            }
+        }
         return false;
     }
 
