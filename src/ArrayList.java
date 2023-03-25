@@ -4,15 +4,17 @@ import java.util.List;
 import java.util.ListIterator;
 
 public class ArrayList<E> implements List<E> {
+    private int size;
+    Object[] datas;
 
     @Override
     public int size() {
-        return 0;
+        return this.size;
     }
 
     @Override
     public boolean isEmpty() {
-        return false;
+        return size==0;
     }
 
     @Override
@@ -37,7 +39,12 @@ public class ArrayList<E> implements List<E> {
 
     @Override
     public boolean add(E e) {
-        return false;
+        size++;
+        Object[] newData = new Object[size];
+        System.arraycopy(datas,0,newData,0,size);
+        newData[size-1] = e;
+        datas = newData;
+        return true;
     }
 
     @Override
