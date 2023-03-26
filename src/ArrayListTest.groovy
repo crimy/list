@@ -130,4 +130,37 @@ class ArrayListTest extends spock.lang.Specification {
         "target3"| 3
         "target4"| 4
     }
+    def "set test"() {
+        given:
+        ArrayList<String> testList = new ArrayList<>();
+        def oldString = "originalData"
+        def newString = "newData"
+
+        for(int index=0; index < 5; index++) {
+            testList.add(oldString)
+        }
+
+        when:
+        def result = testList.set(2, newString)
+
+        then:
+        result == oldString
+        testList.get(2) == newString
+    }
+    def "set test : Index out of bounds exception"() {
+        given:
+        ArrayList<String> testList = new ArrayList<>();
+        def oldString = "originalData"
+        def newString = "newData"
+
+        for(int index=0; index < 5; index++) {
+            testList.add(oldString)
+        }
+
+        when:
+        testList.set(78, newString)
+
+        then:
+        thrown(IndexOutOfBoundsException.class)
+    }
 }

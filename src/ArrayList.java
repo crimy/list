@@ -94,7 +94,12 @@ public class ArrayList<E> implements List<E> {
 
     @Override
     public E set(int index, E element) {
-        return null;
+        if(index > size -1 || index < 0) {
+            throw new IndexOutOfBoundsException();
+        }
+        E oldData = (E) datas[index];
+        datas[index] = element;
+        return oldData;
     }
 
     @Override
