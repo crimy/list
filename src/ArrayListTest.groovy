@@ -44,4 +44,36 @@ class ArrayListTest extends spock.lang.Specification {
             array[data] == data;
         }
     }
+    def "indexOf test"() {
+        given:
+        ArrayList<String> testList = new ArrayList<>();
+        def target = "target"
+
+        for(int index=0; index < 5; index++) {
+            testList.add("doNotFind")
+        }
+        testList.add(target)
+
+        when:
+        def result = testList.indexOf(target)
+
+        then:
+        result == 5
+    }
+    def "indexOf test : not found"() {
+        given:
+        ArrayList<String> testList = new ArrayList<>();
+        def target = "target"
+
+        for(int index=0; index < 5; index++) {
+            testList.add("doNotFind")
+        }
+        testList.add("cantFind")
+
+        when:
+        def result = testList.indexOf(target)
+
+        then:
+        result == -1
+    }
 }

@@ -109,7 +109,12 @@ public class ArrayList<E> implements List<E> {
 
     @Override
     public int indexOf(Object o) {
-        return 0;
+        for(int index = 0; index < size ; index++ ) {
+            if(datas[index] == o) {
+                return index;
+            }
+        }
+        return -1;
     }
 
     @Override
