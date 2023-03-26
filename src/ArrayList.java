@@ -89,7 +89,7 @@ public class ArrayList<E> implements List<E> {
 
     @Override
     public E get(int index) {
-        return null;
+        return (E) datas[index];
     }
 
     @Override

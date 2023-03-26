@@ -107,4 +107,27 @@ class ArrayListTest extends spock.lang.Specification {
         then:
         result == -1
     }
+    def "get test"() {
+        given:
+        ArrayList<String> testList = new ArrayList<>();
+        def data = "target"
+
+        for(int index = 0; index < 5; index++) {
+            testList.add(data+index)
+        }
+
+        when:
+        def result = testList.get(INDEX)
+
+        then:
+        result == EXPECTED
+
+        where:
+        EXPECTED | INDEX
+        "target0"| 0
+        "target1"| 1
+        "target2"| 2
+        "target3"| 3
+        "target4"| 4
+    }
 }
