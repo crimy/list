@@ -76,4 +76,35 @@ class ArrayListTest extends spock.lang.Specification {
         then:
         result == -1
     }
+
+    def "lastIndexOf test"() {
+        given:
+        ArrayList<String> testList = new ArrayList<>();
+        def target = "target"
+
+        for(int index=0; index < 5; index++) {
+            testList.add(target)
+        }
+
+        when:
+        def result = testList.lastIndexOf(target)
+
+        then:
+        result == 4
+    }
+    def "lastIndexOf test : not found"() {
+        given:
+        ArrayList<String> testList = new ArrayList<>();
+        def target = "target"
+
+        for(int index=0; index < 5; index++) {
+            testList.add("doNotFind")
+        }
+
+        when:
+        def result = testList.indexOf(target)
+
+        then:
+        result == -1
+    }
 }

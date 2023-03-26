@@ -119,7 +119,12 @@ public class ArrayList<E> implements List<E> {
 
     @Override
     public int lastIndexOf(Object o) {
-        return 0;
+        for(int index = size-1; index >= 0; index++) {
+            if(datas[index] == o) {
+                return index;
+            }
+        }
+        return -1;
     }
 
     @Override
