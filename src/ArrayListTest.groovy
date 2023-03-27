@@ -177,4 +177,18 @@ class ArrayListTest extends spock.lang.Specification {
         then:
         testList == List.of(text + 0, text+1, text+3, text+4)
     }
+    def "remove test : index"() {
+        given:
+        ArrayList<String> testList = new ArrayList<>()
+        def text = "data"
+        for(int index=0; index < 5; index++) {
+            testList.add(text+index)
+        }
+
+        when:
+        testList.remove(2)
+
+        then:
+        testList == List.of(text + 0, text+1, text+3, text+4)
+    }
 }

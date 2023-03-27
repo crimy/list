@@ -114,7 +114,9 @@ public class ArrayList<E> implements List<E> {
 
     @Override
     public E remove(int index) {
-        return null;
+        Object target = datas[index];
+        datas[index] = null;
+        return (E) target;
     }
 
     @Override
