@@ -163,4 +163,18 @@ class ArrayListTest extends spock.lang.Specification {
         then:
         thrown(IndexOutOfBoundsException.class)
     }
+    def "remove test : Object"() {
+        given:
+        ArrayList<String> testList = new ArrayList<>()
+        def text = "data"
+        for(int index=0; index < 5; index++) {
+            testList.add(text+index)
+        }
+
+        when:
+        testList.remove(text+2)
+
+        then:
+        testList == List.of(text + 0, text+1, text+3, text+4)
+    }
 }

@@ -54,7 +54,12 @@ public class ArrayList<E> implements List<E> {
 
     @Override
     public boolean remove(Object o) {
-        return false;
+        int target = indexOf(o);
+        if(target == -1) {
+            return false;
+        }
+        datas[target] = null;
+        return true;
     }
 
     @Override
